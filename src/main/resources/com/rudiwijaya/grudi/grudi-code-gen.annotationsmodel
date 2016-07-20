@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<annotationsmodel:AnnotatedModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:annotationsmodel="http://www.eclipse.org/emf/texo/annotations/model" xmlns:modelannotations="http://www.eclipse.org/emf/texo/modelgenerator/modelannotations" xmlns:ormannotations="http://www.eclipse.org/emf/texo/orm/ormannotations">
+  <annotatedEPackages>
+    <ePackage href="grudi.ecore#/"/>
+    <ePackageAnnotations xsi:type="modelannotations:EPackageModelGenAnnotation" name="grudi" packagePath="com.rudiwijaya.grudi.jpa" modelClassesPackagePath="com.rudiwijaya.grudi.jpa" qualifiedClassName="com.rudiwijaya.grudi.jpa.GrudiModelPackage" simpleClassName="GrudiModelPackage" simpleModelFactoryClassName="GrudiModelFactory" ecoreFileName="grudi.ecore" daoClassesPackagePath="com.rudiwijaya.grudi.jpa.dao" daoRootClass="org.eclipse.emf.texo.server.store.BaseDao"/>
+    <annotatedEClassifiers xsi:type="annotationsmodel:AnnotatedEClass">
+      <eClass href="grudi.ecore#//Person"/>
+      <eClassAnnotations xsi:type="modelannotations:EClassModelGenAnnotation" name="Person" qualifiedClassName="com.rudiwijaya.grudi.jpa.Person" simpleClassName="Person" generateCode="true" ownerEPackageAnnotation="//@annotatedEPackages.0/@ePackageAnnotations.0" hasSuperEClass="false" serializable="true" abstract="false" daoQualifiedClassName="com.rudiwijaya.grudi.jpa.dao.PersonDao"/>
+      <eClassAnnotations xsi:type="ormannotations:EClassORMAnnotation">
+        <entity name="Person"/>
+      </eClassAnnotations>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//Person/id"/>
+        <eAttributeAnnotations xsi:type="modelannotations:EAttributeModelGenAnnotation" name="id" getter="getId" defaultValue="null" setter="setId" validJavaMemberName="id" useList="false" ownerEClassAnnotation="//@annotatedEPackages.0/@annotatedEClassifiers.0/@eClassAnnotations.0"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <id>
+            <generatedValue strategy="IDENTITY"/>
+          </id>
+        </eAttributeAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//Person/email"/>
+        <eAttributeAnnotations xsi:type="modelannotations:EAttributeModelGenAnnotation" name="email" getter="getEmail" defaultValue="null" setter="setEmail" validJavaMemberName="email" useList="false" ownerEClassAnnotation="//@annotatedEPackages.0/@annotatedEClassifiers.0/@eClassAnnotations.0"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <basic>
+            <column nullable="false" unique="true"/>
+          </basic>
+        </eAttributeAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//Person/password"/>
+        <eAttributeAnnotations xsi:type="modelannotations:EAttributeModelGenAnnotation" name="password" getter="getPassword" defaultValue="null" setter="setPassword" validJavaMemberName="password" useList="false" ownerEClassAnnotation="//@annotatedEPackages.0/@annotatedEClassifiers.0/@eClassAnnotations.0"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <basic>
+            <column nullable="false"/>
+          </basic>
+        </eAttributeAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//Person/name"/>
+        <eAttributeAnnotations xsi:type="modelannotations:EAttributeModelGenAnnotation" name="name" getter="getName" defaultValue="null" setter="setName" validJavaMemberName="name" useList="false" ownerEClassAnnotation="//@annotatedEPackages.0/@annotatedEClassifiers.0/@eClassAnnotations.0"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <basic>
+            <column nullable="false"/>
+          </basic>
+        </eAttributeAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//Person/phoneNumber"/>
+        <eAttributeAnnotations xsi:type="modelannotations:EAttributeModelGenAnnotation" name="phoneNumber" getter="getPhoneNumber" defaultValue="null" setter="setPhoneNumber" validJavaMemberName="phoneNumber" useList="false" ownerEClassAnnotation="//@annotatedEPackages.0/@annotatedEClassifiers.0/@eClassAnnotations.0"/>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//Person/gender"/>
+        <eAttributeAnnotations xsi:type="modelannotations:EAttributeModelGenAnnotation" name="gender" getter="getGender" defaultValue="null" setter="setGender" validJavaMemberName="gender" useList="false" ownerEClassAnnotation="//@annotatedEPackages.0/@annotatedEClassifiers.0/@eClassAnnotations.0"/>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//Person/address"/>
+        <eAttributeAnnotations xsi:type="modelannotations:EAttributeModelGenAnnotation" name="address" getter="getAddress" defaultValue="null" setter="setAddress" validJavaMemberName="address" useList="false" ownerEClassAnnotation="//@annotatedEPackages.0/@annotatedEClassifiers.0/@eClassAnnotations.0"/>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//Person/versionNumber"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <version name="versionNumber"/>
+        </eAttributeAnnotations>
+        <eAttributeAnnotations xsi:type="modelannotations:EAttributeModelGenAnnotation" validJavaMemberName="versionNumber" useList="false"/>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//Person/username"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <basic>
+            <column nullable="false" unique="true"/>
+          </basic>
+        </eAttributeAnnotations>
+      </annotatedEStructuralFeatures>
+    </annotatedEClassifiers>
+    <annotatedEClassifiers xsi:type="annotationsmodel:AnnotatedEEnum">
+      <eEnum href="grudi.ecore#//Gender"/>
+      <eEnumAnnotations xsi:type="modelannotations:EEnumModelGenAnnotation" name="Gender" qualifiedClassName="com.rudiwijaya.grudi.jpa.Gender" simpleClassName="Gender" generateCode="true" ownerEPackageAnnotation="//@annotatedEPackages.0/@ePackageAnnotations.0" enum="true" dateType="false" automaticStringConversion="false"/>
+      <annotatedEEnumLiterals>
+        <eEnumLiteral href="grudi.ecore#//Gender/male"/>
+      </annotatedEEnumLiterals>
+      <annotatedEEnumLiterals>
+        <eEnumLiteral href="grudi.ecore#//Gender/female"/>
+      </annotatedEEnumLiterals>
+      <annotatedEEnumLiterals>
+        <eEnumLiteral href="grudi.ecore#//Gender/unknown"/>
+      </annotatedEEnumLiterals>
+    </annotatedEClassifiers>
+    <annotatedEClassifiers xsi:type="annotationsmodel:AnnotatedEClass">
+      <eClass href="grudi.ecore#//Team"/>
+      <eClassAnnotations xsi:type="modelannotations:EClassModelGenAnnotation" name="Team" qualifiedClassName="com.rudiwijaya.grudi.jpa.Team" simpleClassName="Team" generateCode="true" ownerEPackageAnnotation="//@annotatedEPackages.0/@ePackageAnnotations.0" hasManyFeatures="true" hasSuperEClass="false" serializable="true" abstract="false" daoQualifiedClassName="com.rudiwijaya.grudi.jpa.dao.TeamDao"/>
+      <eClassAnnotations xsi:type="ormannotations:EClassORMAnnotation">
+        <entity name="Team"/>
+      </eClassAnnotations>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//Team/id"/>
+        <eAttributeAnnotations xsi:type="modelannotations:EAttributeModelGenAnnotation" name="id" getter="getId" defaultValue="null" setter="setId" validJavaMemberName="id" useList="false" ownerEClassAnnotation="//@annotatedEPackages.0/@annotatedEClassifiers.2/@eClassAnnotations.0"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <id>
+            <generatedValue strategy="IDENTITY"/>
+          </id>
+        </eAttributeAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//Team/name"/>
+        <eAttributeAnnotations xsi:type="modelannotations:EAttributeModelGenAnnotation" name="name" getter="getName" defaultValue="null" setter="setName" validJavaMemberName="name" useList="false" ownerEClassAnnotation="//@annotatedEPackages.0/@annotatedEClassifiers.2/@eClassAnnotations.0"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <basic>
+            <column nullable="false" unique="true"/>
+          </basic>
+        </eAttributeAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEReference">
+        <eReference href="grudi.ecore#//Team/lines"/>
+        <eReferenceAnnotations xsi:type="modelannotations:EReferenceModelGenAnnotation" name="lines" getter="getLines" defaultValue="new java.util.ArrayList&lt;com.rudiwijaya.grudi.jpa.TeamLine>()" setter="setLines" validJavaMemberName="lines" useList="true" ownerEClassAnnotation="//@annotatedEPackages.0/@annotatedEClassifiers.2/@eClassAnnotations.0" generateSafeManyAccess="false" generateBidirectionalAssociationSupport="true"/>
+        <eReferenceAnnotations xsi:type="ormannotations:EReferenceORMAnnotation">
+          <oneToMany mappedBy="team" orphanRemoval="true"/>
+        </eReferenceAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//Team/versionNumber"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <version name="versionNumber"/>
+        </eAttributeAnnotations>
+        <eAttributeAnnotations xsi:type="modelannotations:EAttributeModelGenAnnotation" validJavaMemberName="versionNumber" useList="false"/>
+      </annotatedEStructuralFeatures>
+    </annotatedEClassifiers>
+    <annotatedEClassifiers xsi:type="annotationsmodel:AnnotatedEClass">
+      <eClass href="grudi.ecore#//TeamLine"/>
+      <eClassAnnotations xsi:type="modelannotations:EClassModelGenAnnotation" name="TeamLine" qualifiedClassName="com.rudiwijaya.grudi.jpa.TeamLine" simpleClassName="TeamLine" generateCode="true" ownerEPackageAnnotation="//@annotatedEPackages.0/@ePackageAnnotations.0" hasSuperEClass="false" serializable="true" abstract="false" daoQualifiedClassName="com.rudiwijaya.grudi.jpa.dao.TeamLineDao"/>
+      <eClassAnnotations xsi:type="ormannotations:EClassORMAnnotation">
+        <entity name="TeamLine"/>
+      </eClassAnnotations>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//TeamLine/id"/>
+        <eAttributeAnnotations xsi:type="modelannotations:EAttributeModelGenAnnotation" name="id" getter="getId" defaultValue="null" setter="setId" validJavaMemberName="id" useList="false" ownerEClassAnnotation="//@annotatedEPackages.0/@annotatedEClassifiers.3/@eClassAnnotations.0"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <id>
+            <generatedValue strategy="IDENTITY"/>
+          </id>
+        </eAttributeAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//TeamLine/kind"/>
+        <eAttributeAnnotations xsi:type="modelannotations:EAttributeModelGenAnnotation" name="kind" getter="getKind" defaultValue="null" setter="setKind" validJavaMemberName="kind" useList="false" ownerEClassAnnotation="//@annotatedEPackages.0/@annotatedEClassifiers.3/@eClassAnnotations.0"/>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEReference">
+        <eReference href="grudi.ecore#//TeamLine/team"/>
+        <eReferenceAnnotations xsi:type="modelannotations:EReferenceModelGenAnnotation" name="team" getter="getTeam" defaultValue="null" setter="setTeam" validJavaMemberName="team" useList="false" ownerEClassAnnotation="//@annotatedEPackages.0/@annotatedEClassifiers.3/@eClassAnnotations.0" generateSafeManyAccess="false" generateBidirectionalAssociationSupport="true"/>
+        <eReferenceAnnotations xsi:type="ormannotations:EReferenceORMAnnotation">
+          <joinColumn columnDefinition="team_id" referencedColumnName="id" table="TeamLine"/>
+        </eReferenceAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEReference">
+        <eReference href="grudi.ecore#//TeamLine/person"/>
+        <eReferenceAnnotations xsi:type="modelannotations:EReferenceModelGenAnnotation" name="person" getter="getPerson" defaultValue="null" setter="setPerson" validJavaMemberName="person" useList="false" ownerEClassAnnotation="//@annotatedEPackages.0/@annotatedEClassifiers.3/@eClassAnnotations.0" generateSafeManyAccess="false" generateBidirectionalAssociationSupport="false"/>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//TeamLine/versionNumber"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <version name="versionNumber"/>
+        </eAttributeAnnotations>
+        <eAttributeAnnotations xsi:type="modelannotations:EAttributeModelGenAnnotation" validJavaMemberName="versionNumber" useList="false"/>
+      </annotatedEStructuralFeatures>
+    </annotatedEClassifiers>
+    <annotatedEClassifiers xsi:type="annotationsmodel:AnnotatedEEnum">
+      <eEnum href="grudi.ecore#//TeamPersonKind"/>
+      <eEnumAnnotations xsi:type="modelannotations:EEnumModelGenAnnotation" name="TeamPersonKind" qualifiedClassName="com.rudiwijaya.grudi.jpa.TeamPersonKind" simpleClassName="TeamPersonKind" generateCode="true" ownerEPackageAnnotation="//@annotatedEPackages.0/@ePackageAnnotations.0" enum="true" dateType="false" automaticStringConversion="false"/>
+      <annotatedEEnumLiterals>
+        <eEnumLiteral href="grudi.ecore#//TeamPersonKind/captain"/>
+      </annotatedEEnumLiterals>
+      <annotatedEEnumLiterals>
+        <eEnumLiteral href="grudi.ecore#//TeamPersonKind/member"/>
+      </annotatedEEnumLiterals>
+    </annotatedEClassifiers>
+    <annotatedEClassifiers xsi:type="annotationsmodel:AnnotatedEClass">
+      <eClass href="grudi.ecore#//PersonInfo"/>
+      <eClassAnnotations xsi:type="modelannotations:EClassModelGenAnnotation" name="PersonInfo" qualifiedClassName="com.rudiwijaya.grudi.jpa.PersonInfo" simpleClassName="PersonInfo" generateCode="true" ownerEPackageAnnotation="//@annotatedEPackages.0/@ePackageAnnotations.0" hasSuperEClass="false" serializable="true" abstract="false" daoQualifiedClassName="com.rudiwijaya.grudi.jpa.dao.PersonInfoDao"/>
+      <eClassAnnotations xsi:type="ormannotations:EClassORMAnnotation">
+        <embeddable/>
+      </eClassAnnotations>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//PersonInfo/id"/>
+        <eAttributeAnnotations xsi:type="modelannotations:EAttributeModelGenAnnotation" name="id" getter="getId" defaultValue="null" setter="setId" validJavaMemberName="id" useList="false" ownerEClassAnnotation="//@annotatedEPackages.0/@annotatedEClassifiers.5/@eClassAnnotations.0"/>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//PersonInfo/userName"/>
+        <eAttributeAnnotations xsi:type="modelannotations:EAttributeModelGenAnnotation" name="userName" getter="getUserName" defaultValue="null" setter="setUserName" validJavaMemberName="userName" useList="false" ownerEClassAnnotation="//@annotatedEPackages.0/@annotatedEClassifiers.5/@eClassAnnotations.0"/>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//PersonInfo/name"/>
+        <eAttributeAnnotations xsi:type="modelannotations:EAttributeModelGenAnnotation" name="name" getter="getName" defaultValue="null" setter="setName" validJavaMemberName="name" useList="false" ownerEClassAnnotation="//@annotatedEPackages.0/@annotatedEClassifiers.5/@eClassAnnotations.0"/>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//PersonInfo/phoneNumber"/>
+        <eAttributeAnnotations xsi:type="modelannotations:EAttributeModelGenAnnotation" name="phoneNumber" getter="getPhoneNumber" defaultValue="null" setter="setPhoneNumber" validJavaMemberName="phoneNumber" useList="false" ownerEClassAnnotation="//@annotatedEPackages.0/@annotatedEClassifiers.5/@eClassAnnotations.0"/>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="grudi.ecore#//PersonInfo/gender"/>
+        <eAttributeAnnotations xsi:type="modelannotations:EAttributeModelGenAnnotation" name="gender" getter="getGender" defaultValue="null" setter="setGender" validJavaMemberName="gender" useList="false" ownerEClassAnnotation="//@annotatedEPackages.0/@annotatedEClassifiers.5/@eClassAnnotations.0"/>
+      </annotatedEStructuralFeatures>
+    </annotatedEClassifiers>
+  </annotatedEPackages>
+</annotationsmodel:AnnotatedModel>

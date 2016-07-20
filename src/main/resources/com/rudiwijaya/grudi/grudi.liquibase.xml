@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+	http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+	
+	<changeSet author="rudi" id="enum_type">
+		<sql>
+			<comment>Gender</comment>
+			CREATE TYPE gender AS ENUM ('MALE', 'FEMALE', 'UNKNOWN');
+			COMMENT ON TYPE gender IS 'Gender';
+		</sql>
+		
+		<sql>
+			<comment>Team Person Kind</comment>
+			CREATE TYPE teamperson_kind AS ENUM ('CAPTAIN', 'MEMBER');
+			COMMENT ON TYPE teamperson_kind IS 'Team Person Kind';
+		</sql>
+	</changeSet>
+	
+	<changeSet author="rudi" id="table_person">
+		<createTable tableName="person">
+			<column name="id" type="bigserial">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="username" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="email" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="password" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="name" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="phonenumber" type="varchar(255)"/>
+			<column name="gender" type="gender"/>
+			<column name="address" type="varchar(255)"/>
+			<column name="versionnumber" type="bigint" remarks="Validator for adding or modifying row by concurrent incidents.">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		
+		<addUniqueConstraint columnNames="username"
+			constraintName="person_username" deferrable="true" disabled="true"
+			initiallyDeferred="true" tableName="person" />
+			
+	</changeSet>
+	
+	
+	<changeSet author="rudi" id="table_team">
+		<createTable tableName="team">
+			<column name="id" type="bigserial">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="name" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="versionnumber" type="bigint" remarks="Validator for adding or modifying row by concurrent incidents.">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		
+		<addUniqueConstraint columnNames="name"
+			constraintName="person_name" deferrable="true" disabled="true"
+			initiallyDeferred="true" tableName="team" />
+			
+	</changeSet>
+	
+	<changeSet author="rudi" id="table_teamline">
+		<createTable tableName="teamline">
+			<column name="id" type="bigserial">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="team_id" type="bigint">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="kind" type="teamperson_kind">
+				<constraints nullable="false" />
+			</column>
+			<column name="person_id" type="bigint"/>
+			<column name="person_username" type="varchar(255)"/>
+			<column name="person_name" type="varchar(255)"/>
+			<column name="person_phonenumber" type="varchar(255)"/>
+			<column name="person_gender" type="gender"/>
+			<column name="versionnumber" type="bigint" remarks="Validator for adding or modifying row by concurrent incidents.">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+
+		<addForeignKeyConstraint baseColumnNames="team_id"
+			baseTableName="teamline" constraintName="fk_teamline_team" deferrable="true"
+			initiallyDeferred="true" onDelete="CASCADE" onUpdate="RESTRICT"
+			referencedColumnNames="id" referencedTableName="team" />
+			
+	</changeSet>
+	
+	
+</databaseChangeLog>

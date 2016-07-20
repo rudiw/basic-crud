@@ -1,0 +1,72 @@
+<body>
+	<wicket:extend>
+		<h1>REGISTER AKUN</h1>
+		
+		<form wicket:id="form" class="form-horizontal">
+			<div class="form-group" >
+			    <label class="col-sm-2" wicket:for="username">Username *:</label>
+		    	<div class="col-sm-6">
+					<input type="text" class="form-control" wicket:id="username"></input>
+		    	</div>
+		  	</div>
+		  	
+			<div class="form-group" >
+			    <label class="col-sm-2" wicket:for="txtName">Nama Lengkap *:</label>
+		    	<div class="col-sm-6">
+					<input type="text" class="form-control" wicket:id="txtName"></input>
+		    	</div>
+		  	</div>
+		  	
+		  	<div class="form-group" >
+			    <label class="col-sm-2" wicket:for="txtEmail">Email *:</label>
+		    	<div class="col-sm-6">
+					<input type="email" class="form-control" wicket:id="txtEmail"></input>
+		    	</div>
+		  	</div>
+		  	
+		  	<div class="form-group" >
+			    <label class="col-sm-2" wicket:for="phoneNumber">No. Telepon:</label>
+		    	<div class="col-sm-6">
+					<input type="text" class="form-control" wicket:id="phoneNumber"></input>
+		    	</div>
+		  	</div>
+		  	
+		  	<div class="form-group" >
+			    <label class="col-sm-2" wicket:for="gender">Jenis Kelamin:</label>
+		    	<div class="col-sm-6">
+					<select wicket:id="gender"></select>
+		    	</div>
+		  	</div>
+		  	
+		  	<div class="form-group" >
+			    <label class="col-sm-2" wicket:for="address">Alamat:</label>
+		    	<div class="col-sm-6">
+					<textarea wicket:id="address"></textarea>
+		    	</div>
+		  	</div>
+		  	
+		  	<div class="form-group">
+		  		<label class="col-sm-2" wicket:for="password">Kata Sandi *:</label>
+		  		<div class="col-sm-6">
+					<input type="password" class="form-control" wicket:id="password"></input>
+		  		</div>
+		  	</div>
+		  	
+		  	<div class="form-group">
+		  		<label class="col-sm-2" wicket:for="repassword">Ulangi Kata Sandi *:</label>
+		  		<div class="col-sm-6">
+					<input type="password" class="form-control" wicket:id="repassword"></input>
+		  		</div>
+		  	</div>
+		  	
+			<button type="submit" wicket:id="btnLogin">LOGIN</button>
+			
+			<p>
+				Saya telah membaca dan menerima <a wicket:id="linkTermAndConditions">Syarat dan Peraturan</a> dari Garena.
+			</p>
+		</form>
+		
+		<div wicket:id="termAndConditionsModal"></div>
+		
+	</wicket:extend>
+</body>

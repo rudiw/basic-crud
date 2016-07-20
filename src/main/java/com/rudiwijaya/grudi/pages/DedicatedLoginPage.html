@@ -1,0 +1,28 @@
+<body>
+	<wicket:extend>
+		<h1>LOGIN</h1>
+		
+		<form wicket:id="form" class="form-horizontal">
+			<div class="form-group" >
+			    <label class="col-sm-2" wicket:for="username">Username:</label>
+		    	<div class="col-sm-6">
+					<input type="text" class="form-control" wicket:id="username" placeholder="Masukkan Username Anda"></input>
+		    	</div>
+		  	</div>
+		  	
+		  	<div class="form-group">
+		  		<label class="col-sm-2" wicket:for="password">Password:</label>
+		  		<div class="col-sm-6">
+					<input type="password" class="form-control" wicket:id="password" placeholder="Masukkkan Password Anda"></input>
+		  		</div>
+		  	</div>
+		  	
+			<button type="submit" class="btn btn-danger" wicket:id="btnLogin">LOGIN</button>
+			
+			<p>
+				Anda tidak punya akun? Silahkan daftar <a wicket:id="linkRegisterPage">disini</a>.
+			</p>
+		</form>
+		
+	</wicket:extend>
+</body>

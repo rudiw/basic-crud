@@ -1,0 +1,50 @@
+body {
+	padding-top: 80px;
+}
+
+.dropdown-menu {
+	padding: 10px;
+	min-width: 250px;
+}
+
+.navbar-inverse {
+	min-height: 80px;
+}
+
+.collapse.navbar-collapse.navbar-ex1-collapse {
+    min-height: 80px;
+}
+
+a.navbar-brand {
+    height: 80px;
+}
+
+a.navbar-brand {
+    padding-top: 10px;
+}
+
+a.dropdown-toggle {
+	height: 80px;
+}
+
+.navbar-nav > li > a {
+    padding-top: 28px;
+}
+
+a.a-top-navbar {
+	height: 80px;
+}
+
+
+/* .dropdown:hover .dropdown-menu { */
+/*     display: block; */
+/*     margin-top: 0; remove the gap so it doesn't close */
+/*  } */
+
+/* .form-horizontal .control-label { */
+/* 	text-align: left; */
+/* } */
+
+/* #page-wrapper { */
+/* 	padding: 20px 30px; */
+/* } */

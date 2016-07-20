@@ -1,0 +1,7 @@
+baseUri=http://garena.rudiwijaya.com
+
+# PostgreSQL
+sqlUrl=jdbc:postgresql://localhost/grudi_prd
+sqlUser=grudi_prd
+sqlPassword=9ce62967
+

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</Pattern>
+		</layout>
+	</appender>
+
+	<!-- FILE -->
+	<appender name="STDOUT" class="ch.qos.logback.core.FileAppender">
+	<!-- On Windows machines setting withJansi to true enables ANSI
+		    color code interpretation by the Jansi library. This requires
+		    org.fusesource.jansi:jansi:1.8 on the class path.  Note that
+		    Unix-based operating systems such as Linux and Mac OS X
+		    support ANSI color codes by default. -->
+		<withJansi>true</withJansi>
+		<file>${user.home}/log/grudi_app.log</file>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</Pattern>
+		</layout>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+<!-- 			daily rollover with gzip -->
+			<fileNamePattern>${user.home}/hlog/grudi_app.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+<!-- 			keep some history -->
+			<maxHistory>7</maxHistory>
+		</rollingPolicy>
+	</appender>
+
+	<!-- LILITH -->
+	<appender name="multiplex" class="de.huxhorn.lilith.logback.appender.ClassicMultiplexSocketAppender">
+	    <Compressing>true</Compressing>
+	    <!-- will automatically use correct default port -->
+	    <!-- Default port for compressed is 10000 and uncompressed 10001 -->
+	    <ReconnectionDelay>10000</ReconnectionDelay>
+	    <IncludeCallerData>true</IncludeCallerData>
+	    <RemoteHosts>localhost</RemoteHosts>
+	    <!-- Alternatively:
+	    <RemoteHost>localhost</RemoteHost>
+	    <RemoteHost>10.200.55.13</RemoteHost>
+	    -->
+	    <!--
+	    Optional:
+	    <CreatingUUID>false</CreatingUUID>
+	    -->
+	</appender>
+	
+	<logger name="com.rudiwijaya.cashier" level="TRACE" />
+	<logger name="org.apache.shiro" level="TRACE" />
+
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+		<!-- LILITH -->
+		<appender-ref ref="multiplex" />
+		<!-- FILE -->
+<!-- 		<appender-ref ref="FILE" /> -->
+	</root>
+</configuration>

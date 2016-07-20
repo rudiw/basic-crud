@@ -1,0 +1,75 @@
+<body>
+	<wicket:extend>
+		<h1>FORM REGISTRASI</h1>
+		
+		<div class="col-sm-12">
+			Hi, <span wicket:id="loggedInPersonName"></span>! [<a wicket:id="linkLogout">Keluar</a>]
+		</div>
+		
+		<form wicket:id="form" class="form-horizontal">
+			<div class="form-group" >
+			    <label class="col-sm-2" wicket:for="txtName">Nama Tim *:</label>
+		    	<div class="col-sm-6">
+					<input type="text" class="form-control" wicket:id="txtName"></input>
+		    	</div>
+		  	</div>
+		  	
+		  	<hr/>
+		  	<h3>Captain</h3>
+		  	<div class="form-group" >
+			    <label class="col-sm-2" wicket:for="txtCaptainName">Nama Lengkap *:</label>
+		    	<div class="col-sm-6">
+					<input type="text" class="form-control" wicket:id="txtCaptainName"></input>
+		    	</div>
+		  	</div>
+		  	
+		  	<div class="form-group" >
+			    <label class="col-sm-2" wicket:for="captainPhoneNumber">No. Telepon:</label>
+		    	<div class="col-sm-6">
+					<input type="text" class="form-control" wicket:id="captainPhoneNumber"></input>
+		    	</div>
+		  	</div>
+		  	
+		  	<div class="form-group" >
+			    <label class="col-sm-2" wicket:for="captainGender">Jenis Kelamin:</label>
+		    	<div class="col-sm-6">
+					<select wicket:id="captainGender"></select>
+		    	</div>
+		  	</div>
+		  	
+		  	<hr/>
+		  	<h3>Anggota 1</h3>
+		  	<div class="form-group" >
+			    <label class="col-sm-2" wicket:for="txtMember1Name">Nama Lengkap *:</label>
+		    	<div class="col-sm-6">
+					<input type="text" class="form-control" wicket:id="txtMember1Name"></input>
+		    	</div>
+		  	</div>
+		  	
+		  	<div class="form-group" >
+			    <label class="col-sm-2" wicket:for="member1PhoneNumber">No. Telepon:</label>
+		    	<div class="col-sm-6">
+					<input type="text" class="form-control" wicket:id="member1PhoneNumber"></input>
+		    	</div>
+		  	</div>
+		  	
+		  	<div class="form-group" >
+			    <label class="col-sm-2" wicket:for="member1Gender">Jenis Kelamin:</label>
+		    	<div class="col-sm-6">
+					<select wicket:id="member1Gender"></select>
+		    	</div>
+		  	</div>
+		  	
+		  	<hr/>
+		  	
+			<button type="submit" wicket:id="btnRegister">REGISTRASI</button>
+			
+			<p>
+				Saya telah membaca dan menerima <a wicket:id="linkTermAndConditions">Syarat dan Peraturan</a> dari turnamen ini.
+			</p>
+		</form>
+		
+		<div wicket:id="termAndConditionsModal"></div>
+		
+	</wicket:extend>
+</body>

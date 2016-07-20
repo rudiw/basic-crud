@@ -1,0 +1,24 @@
+<body>
+	<wicket:extend>
+		<h1>REGISTRASI BERHASIL</h1>
+		
+		<div class="col-sm-12">
+			Hi, <span wicket:id="loggedInPersonName"></span>! [<a wicket:id="linkLogout">Keluar</a>]
+		</div>
+		
+		<form wicket:id="form" class="form-horizontal">
+			<p>
+				Terimakasih telah mendaftar di Turnamen Garena 3 vs 3!
+				<br/>
+				Untuk info lebih lanjut, kunjungi Forum Garena Indonesia <a wicket:id="linkForum" target="_blank">di sini</a>.
+				<br/>
+				Garena, Connecting World Gamers!
+			</p>
+			
+			<div class="form-group" >
+				<a class="btn btn-default" wicket:id="btnLogout">KELUAR</a>
+			</div>
+		</form>
+		
+	</wicket:extend>
+</body>

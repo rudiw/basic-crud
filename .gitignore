@@ -1,0 +1,8 @@
+target
+build
+.gradle
+.directory
+.factorypath
+.classpath
+.settings
+.project
