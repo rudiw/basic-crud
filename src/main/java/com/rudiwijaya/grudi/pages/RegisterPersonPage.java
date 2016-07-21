@@ -28,6 +28,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wicketstuff.annotation.mount.MountPath;
 
+import com.google.common.base.Strings;
 import com.google.common.base.Throwables;
 import com.rudiwijaya.grudi.SlugUtils;
 import com.rudiwijaya.grudi.WicketSession;
@@ -135,10 +136,16 @@ public class RegisterPersonPage extends BasePage {
 						return;
 					}
 					
-//					if (!SlugUtils.PERSON_PASSWORD.matcher(loginTokenModel.getObject().getPassword()).matches()) {
-//						error("Password field length must between 8-16 character.");
-//						return;
-//					}
+					if (!SlugUtils.PERSON_PASSWORD.matcher(repasswordModel.getObject()).matches()) {
+						error("Password field length must between 8-16 character.");
+						return;
+					}
+					
+					if (!Strings.isNullOrEmpty(upPerson.getPhoneNumber())
+							&& !SlugUtils.PHONE_NUMBER.matcher(upPerson.getPhoneNumber()).matches()) {
+						error("Phone field length must between 7-14 and only numeric allowed.");
+						return;
+					}
 					
 					if (personRepo.existsByUsername(upPerson.getUsername())) {
 						error("Username sudah terpakai!");

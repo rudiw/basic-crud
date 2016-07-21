@@ -24,6 +24,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wicketstuff.annotation.mount.MountPath;
 
+import com.google.common.base.Strings;
 import com.google.common.base.Throwables;
 import com.rudiwijaya.grudi.SlugUtils;
 import com.rudiwijaya.grudi.WicketSession;
@@ -151,6 +152,20 @@ public class RegisterTeamPage extends BasePage {
 						return;
 					}
 					
+					final PersonInfo objCaptain = captainModel.getObject();
+					if (!Strings.isNullOrEmpty(objCaptain.getPhoneNumber())
+							&& !SlugUtils.PHONE_NUMBER.matcher(objCaptain.getPhoneNumber()).matches()) {
+						error("Captain's Phone field length must between 7-14 and only numeric allowed.");
+						return;
+					}
+					
+					final PersonInfo objMember1 = member1Model.getObject();
+					if (!Strings.isNullOrEmpty(objMember1.getPhoneNumber())
+							&& !SlugUtils.PHONE_NUMBER.matcher(objMember1.getPhoneNumber()).matches()) {
+						error("Member 1's Phone field length must between 7-14 and only numeric allowed.");
+						return;
+					}
+					
 					if (teamRepo.existsByName(upTeam.getName())) {
 						error("Nama sudah terpakai!");
 						return;
@@ -159,7 +174,7 @@ public class RegisterTeamPage extends BasePage {
 					//add captain line
 					final TeamLine captainLine = new TeamLine();
 					captainLine.setKind(TeamPersonKind.CAPTAIN);
-					captainLine.setPerson(captainModel.getObject());
+					captainLine.setPerson(objCaptain);
 					upTeam.addToLines(captainLine);
 					
 					//add member1 line

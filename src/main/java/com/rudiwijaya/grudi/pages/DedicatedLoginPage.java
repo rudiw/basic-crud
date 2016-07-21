@@ -63,10 +63,10 @@ public class DedicatedLoginPage extends BasePage {
 						return;
 					}
 					
-//					if (!SlugUtils.PERSON_PASSWORD.matcher(loginTokenModel.getObject().getPassword()).matches()) {
-//						error("Password field length must between 8-16 character.");
-//						return;
-//					}
+					if (!SlugUtils.PERSON_PASSWORD.matcher(loginTokenModel.getObject().getPassword()).matches()) {
+						error("Password field length must between 8-16 character.");
+						return;
+					}
 					
 					super.onSubmit();
 				};
@@ -78,10 +78,10 @@ public class DedicatedLoginPage extends BasePage {
 						return;
 					}
 					
-//					if (!SlugUtils.PERSON_PASSWORD.matcher(loginTokenModel.getObject().getPassword()).matches()) {
-//						error("Password field length must between 8-16 character.");
-//						return;
-//					}
+					if (!SlugUtils.PERSON_PASSWORD.matcher(loginTokenModel.getObject().getPassword()).matches()) {
+						error("Password field length must between 8-16 character.");
+						return;
+					}
 					
 					super.onSubmit(target, form);
 				};
