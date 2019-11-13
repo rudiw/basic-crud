@@ -262,6 +262,7 @@ public abstract class JpaRepositoryImpl<T, ID extends Serializable> extends Pagi
 	
 	@Override @Transactional
 	public long deleteIds(Collection<ID> ids) {
+		log.debug("Attempt to remove {} rows", ids.size());
 		final List<T> found = findAll(ids);
 		for (T t : found) {
 			em.remove(t);

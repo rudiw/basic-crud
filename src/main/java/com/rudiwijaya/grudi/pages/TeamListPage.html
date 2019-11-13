@@ -1,0 +1,23 @@
+<body>
+	<wicket:extend>
+		<h1>FORM REGISTRASI</h1>
+		
+		<div class="col-sm-12">
+			Hi, <span wicket:id="loggedInPersonName"></span>! [<a wicket:id="linkRegisterTeam">Register Tim</a> | <a wicket:id="linkLogout">Keluar</a>]
+		</div>
+		
+		<form wicket:id="form" class="form-horizontal">
+			<div wicket:id="wmcTeams">
+				<ol>
+					<li wicket:id="teams">
+						<span wicket:id="teamId" /> |
+						<span wicket:id="teamName" /> |
+						<button wicket:id="remove">HAPUS</button> | 
+						<a wicket:id="linkRegisterTeam">UBAH</a>
+					</li>
+				</ol>
+			</div>
+		</form>
+		
+	</wicket:extend>
+</body>

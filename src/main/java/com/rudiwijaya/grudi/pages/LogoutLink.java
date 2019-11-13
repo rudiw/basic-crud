@@ -7,12 +7,6 @@ import org.slf4j.LoggerFactory;
 
 import com.rudiwijaya.grudi.WicketSession;
 
-/**
- * rudi: Pake normal link, bukan stateless: ga jadi pake stateless: https://idbippo.atlassian.net/browse/BC-2658
- * 
- * Logs the current user out and returns to "after logout page", using Shiro.
- * @author ceefour
- */
 @SuppressWarnings("serial")
 public class LogoutLink extends Link<Void> {
 

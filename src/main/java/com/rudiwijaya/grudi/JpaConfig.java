@@ -23,21 +23,17 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 import com.google.common.collect.ImmutableMap;
 
-/**
- * Requires {@link PostgresConfig}.
- * @author bippo
- */
 @Configuration
 @Import(GRudiLiquibaseConfig.class)
-public class BippoJpaConfig {
+public class JpaConfig {
 	
 	private static final Logger log = LoggerFactory
-			.getLogger(BippoJpaConfig.class);
+			.getLogger(JpaConfig.class);
 
 	@Inject
 	private DataSource dataSource;
 	
-	public BippoJpaConfig() {
+	public JpaConfig() {
 		super();
 	}
 	

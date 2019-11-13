@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Root;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -35,6 +36,24 @@ public class JpaTeamRepositoryImpl extends JpaRepositoryImpl<Team, Long> impleme
 		} catch (NoResultException e) {
 			log.debug("Not found by name '{}'", name);
 			return false;
+		}
+	}
+
+	@Override
+	public Team findOneWithLines(long id) {
+		final CriteriaBuilder cb = em.getCriteriaBuilder();
+		final CriteriaQuery<Team> cq = cb.createQuery(Team.class);
+		final Root<Team> root = cq.distinct(true).from(Team.class);
+		root.fetch("lines", JoinType.LEFT);
+		
+		cq.select(root).where(cb.equal(root.get("id"), id));
+		
+		try {
+			final Team team = em.createQuery(cq).getSingleResult();
+			log.debug("Team {} with {} lines", team.getId(), team.getLines().size());
+			return team;
+		} catch (Exception e) {
+			return null;
 		}
 	}
 	

@@ -21,7 +21,6 @@ import org.slf4j.LoggerFactory;
  * </ol>
  * This does not connect to LDAP. Instead it uses LDAP-encoded userPassword
  * to provide flexible salt and hashing algorithm. 
- * @author bippo
  */
 public class Rfc2307CredentialsMatcher implements CredentialsMatcher {
 	

@@ -1,6 +1,7 @@
 package com.rudiwijaya.grudi.pages;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 import javax.inject.Inject;
 import javax.persistence.OptimisticLockException;
@@ -66,13 +67,25 @@ public class RegisterTeamPage extends BasePage {
 			throw new NotLoggedInException("Mohon untuk Login dahulu.");
 		}
 		
+		final IModel<Long> editTeamIdModel = new Model<Long>();
+		if (!getPageParameters().get("teamId").isNull()) {
+			editTeamIdModel.setObject(getPageParameters().get("teamId").toLong());
+		}
+		
 		final IModel<Person> loggedInPersonModel = new LoggedInPersonModel(wSession);
 		
 		add(new Label("loggedInPersonName", new PropertyModel<>(loggedInPersonModel, "name")));
 		
+		add(new AjaxLink<TeamListPage>("linkTeamList") {
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+				getRequestCycle().setResponsePage(TeamListPage.class);
+			}
+		});
+		
 		add(new LogoutLink("linkLogout"));
 		
-		add(new RegisterTeamForm("form", loggedInPersonModel));
+		add(new RegisterTeamForm("form", loggedInPersonModel, editTeamIdModel));
 		
 		termAndConditionsModal = new TermAndConditionsModal("termAndConditionsModal");
 		add(termAndConditionsModal);
@@ -80,19 +93,38 @@ public class RegisterTeamPage extends BasePage {
 	
 	private class RegisterTeamForm extends Form<Void> {
 		
-		public RegisterTeamForm(final String id, IModel<Person> loggedInPersonModel) {
+		public RegisterTeamForm(final String id, final IModel<Person> loggedInPersonModel,
+				final IModel<Long> editTeamIdModel) {
 			super(id);
 			
-			final IModel<Team> teamModel = new Model<>(new Team());
+			final IModel<Team> teamModel = new Model<>();
+			
+			if (editTeamIdModel.getObject() != null) {
+				final Team editTeam = teamRepo.findOneWithLines(editTeamIdModel.getObject());
+				teamModel.setObject(editTeam);
+			} else {
+				teamModel.setObject(new Team());
+			}
 			
 			final TextField<String> txtName = new TextField<>("txtName", new PropertyModel<>(teamModel, "name"));
 			txtName.setRequired(true).setLabel(new Model<>("Username"));
 			add(txtName);
 			
 			//captain
-			final PersonInfo captain = new PersonInfo();
-			captain.copyFrom(loggedInPersonModel.getObject());
-			final IModel<PersonInfo> captainModel = new Model<>(captain);
+			final IModel<PersonInfo> captainModel = new Model<>();
+			if (editTeamIdModel.getObject() != null) {
+				captainModel.setObject( teamModel.getObject().getLines().stream().filter(new Predicate<TeamLine>() {
+					@Override
+					public boolean test(TeamLine t) {
+						return t.getKind() == TeamPersonKind.CAPTAIN;
+					}
+				}).findFirst().get().getPerson() );
+			} else {
+				final PersonInfo captain = new PersonInfo();
+				captainModel.setObject(captain);
+			}
+			
+			
 			final TextField<String> txtCaptainName = new TextField<>("txtCaptainName", new PropertyModel<>(captainModel, "name"));
 			txtCaptainName.setRequired(true).setLabel(new Model<>("Nama Kapten"));
 			add(txtCaptainName);
@@ -116,8 +148,18 @@ public class RegisterTeamPage extends BasePage {
 			}) );
 
 			//member1
-			final PersonInfo member1 = new PersonInfo();
-			final IModel<PersonInfo> member1Model = new Model<>(member1);
+			final IModel<PersonInfo> member1Model = new Model<>();
+			if (editTeamIdModel.getObject() != null) {
+				member1Model.setObject( teamModel.getObject().getLines().stream().filter(new Predicate<TeamLine>() {
+					@Override
+					public boolean test(TeamLine t) {
+						return t.getKind() == TeamPersonKind.MEMBER;
+					}
+				}).findFirst().get().getPerson() );
+			} else {
+				final PersonInfo member1 = new PersonInfo();
+				member1Model.setObject(member1);
+			}
 			final TextField<String> txtMember1Name = new TextField<>("txtMember1Name", new PropertyModel<>(member1Model, "name"));
 			txtMember1Name.setRequired(true).setLabel(new Model<>("Nama Anggota 1"));
 			add(txtMember1Name);
@@ -166,9 +208,13 @@ public class RegisterTeamPage extends BasePage {
 						return;
 					}
 					
-					if (teamRepo.existsByName(upTeam.getName())) {
+					if (editTeamIdModel.getObject() == null && teamRepo.existsByName(upTeam.getName())) {
 						error("Nama sudah terpakai!");
 						return;
+					}
+					
+					if (editTeamIdModel.getObject() != null) {
+						upTeam.clearLines();
 					}
 					
 					//add captain line
@@ -184,7 +230,12 @@ public class RegisterTeamPage extends BasePage {
 					upTeam.addToLines(member1Line);
 					
 					try {
-						teamModel.setObject( teamRepo.add(upTeam) );
+						if (editTeamIdModel.getObject() != null) {
+							teamModel.setObject( teamRepo.modify(editTeamIdModel.getObject(), upTeam) );
+						} else {
+							teamModel.setObject( teamRepo.add(upTeam) );
+						}
+						
 						
 						getRequestCycle().setResponsePage(FinishPage.class);
 						

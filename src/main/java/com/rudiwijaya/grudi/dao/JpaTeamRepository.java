@@ -10,5 +10,7 @@ import com.rudiwijaya.grudi.jpa.Team;
 public interface JpaTeamRepository extends PagingAndSortingRepository<Team, Long> {
 	
 	boolean existsByName(String name);
+	
+	Team findOneWithLines(long id);
 
 }

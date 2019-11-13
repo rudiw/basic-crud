@@ -25,6 +25,7 @@ import com.rudiwijaya.grudi.pages.FinishPage;
 import com.rudiwijaya.grudi.pages.HomePage;
 import com.rudiwijaya.grudi.pages.RegisterPersonPage;
 import com.rudiwijaya.grudi.pages.RegisterTeamPage;
+import com.rudiwijaya.grudi.pages.TeamListPage;
 
 import de.agilecoders.wicket.core.Bootstrap;
 import de.agilecoders.wicket.core.markup.html.RenderJavaScriptToFooterHeaderResponseDecorator;
@@ -117,6 +118,7 @@ public class WicketApplication extends WebApplication {
 		mountPage(RegisterPersonPage.class);
 		mountPage(RegisterTeamPage.class);
 		mountPage(FinishPage.class);
+		mountPage(TeamListPage.class);
 	}
 	
 	/**

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import com.rudiwijaya.grudi.dao.BippoSecurityConfig;
+import com.rudiwijaya.grudi.dao.SecurityConfig;
 import com.rudiwijaya.grudi.dao.JpaRepositoryConfig;
 
 
@@ -23,16 +23,16 @@ import com.rudiwijaya.grudi.dao.JpaRepositoryConfig;
 @EnableWebMvc
 @EnableTransactionManagement
 @Import({PostgresConfig.class, GRudiLiquibaseConfig.class,
-	BippoJpaConfig.class, BippoSecurityConfig.class, 
+	JpaConfig.class, SecurityConfig.class, 
 	JpaRepositoryConfig.class})
 public class AppConfig {
 	
 	@Inject
-	private BippoSecurityConfig bippoSecConfig;
+	private SecurityConfig secConfig;
 	
 	@Bean
 	public WicketApplication webApp() {
-	    SecurityUtils.setSecurityManager(bippoSecConfig.securityManager());
+	    SecurityUtils.setSecurityManager(secConfig.securityManager());
 		return new WicketApplication();
 	}
 	

@@ -17,19 +17,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 import com.google.common.collect.ImmutableMap;
-import com.rudiwijaya.grudi.BippoJpaConfig;
+import com.rudiwijaya.grudi.JpaConfig;
 import com.rudiwijaya.grudi.security.JpaRealm;
 
-/**
- * @author ceefour
- *
- */
 @Configuration
-@Import(BippoJpaConfig.class)
-public class BippoSecurityConfig {
+@Import(JpaConfig.class)
+public class SecurityConfig {
 	
 	private static final Logger log = LoggerFactory
-			.getLogger(BippoSecurityConfig.class);
+			.getLogger(SecurityConfig.class);
 	
 	@PersistenceContext
 	private EntityManager em;

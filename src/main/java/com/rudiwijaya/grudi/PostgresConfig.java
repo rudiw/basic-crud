@@ -26,7 +26,6 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
  * 	<li>{@code sqlUser} or {@code spring.datasource.username}: JDBC username.</li>
  * 	<li>{@code sqlPassword} or {@code spring.datasource.password}: For compatibility reasons, it must exist. Some libraries don't work with empty JDBC password.</li>
  * </ul>
- * @author bippo
  */
 @Configuration
 public class PostgresConfig {
