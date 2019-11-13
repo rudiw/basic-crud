@@ -229,6 +229,8 @@ public class RegisterTeamPage extends BasePage {
 					member1Line.setPerson(member1Model.getObject());
 					upTeam.addToLines(member1Line);
 					
+					log.debug("Attempt to upsert Team {}", upTeam.getId());
+					
 					try {
 						if (editTeamIdModel.getObject() != null) {
 							teamModel.setObject( teamRepo.modify(editTeamIdModel.getObject(), upTeam) );

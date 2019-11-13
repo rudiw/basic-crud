@@ -565,7 +565,7 @@ public class GrudiModelFactory implements ModelFactory {
 			final int featureID = eClass().getFeatureID(eStructuralFeature);
 			switch (featureID) {
 			case GrudiModelPackage.TEAMLINE_ID_FEATURE_ID:
-				getTarget().setId((String) value);
+				getTarget().setId((Long) value);
 				return;
 			case GrudiModelPackage.TEAMLINE_KIND_FEATURE_ID:
 				getTarget().setKind((TeamPersonKind) value);

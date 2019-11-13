@@ -37,7 +37,7 @@ public class TeamLine implements Serializable {
 	 */
 	@Id()
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String id = null;
+	private Long id = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -81,7 +81,7 @@ public class TeamLine implements Serializable {
 	 * @return the value of '<em><b>id</b></em>' feature
 	 * @generated
 	 */
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -94,7 +94,7 @@ public class TeamLine implements Serializable {
 	 *            the new value of the '{@link TeamLine#getId() id}' feature.
 	 * @generated
 	 */
-	public void setId(String newId) {
+	public void setId(Long newId) {
 		id = newId;
 	}
 
