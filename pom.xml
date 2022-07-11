@@ -37,7 +37,7 @@
 
 		<spring.version>4.2.1.RELEASE</spring.version>
 
-		<springboot.version>1.2.1.RELEASE</springboot.version>
+		<springboot.version>2.2.11.RELEASE</springboot.version>
 
 		<hibernate.version>4.3.11.Final</hibernate.version>
 		<jadira.version>4.0.0.GA</jadira.version>
